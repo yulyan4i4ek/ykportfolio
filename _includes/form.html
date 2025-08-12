@@ -1,0 +1,69 @@
+<!--{% assign t = site.data.us_ua[page.lang] %}
+<form action="https://formspree.io/f/myzjpzyy" method="POST" data-next="{% if page.lang == 'en' %}/thank.html{% else %}/ua/thank.html{% endif %}">
+  <label for="first-name">{{ t.contact.first-name }}</label><br> 
+  <input type="text" id="first-name" name="first-name" required><br><br>
+
+  <label for="last-name">{{ t.contact.last-name }}</label><br>
+  <input type="text" id="last-name" name="last-name" required><br><br>
+
+  <label for="email">{{ t.contact.email }}</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="message">{{ t.contact.message }}</label><br>
+  <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+   антиспам honeypot поле (не обов'язкове, але корисне) 
+  <input type="text" name="_gotcha" style="display:none">
+
+   перенаправлення після надсилання 
+    {% if page.lang == 'en'%}
+  <input type="hidden" name="_next" value="{{ '/thank.html' | relative_url }}">
+    {% else %}
+  <input type="hidden" name="_next" value="{{ '/ua/thank.html' | relative_url }}">
+    {% endif %}
+
+  <button type="submit">{{ t.contact.send }}</button>
+</form> -->
+
+
+{% assign t = site.data.us_ua[page.lang] %}
+<!-- <form action="https://formspree.io/f/myzjpzyy" method="POST" data-next="{% if page.lang == 'en' %}/thank.html{% else %}/ua/thank.html{% endif %}">
+  <label for="first-name">{{ t.contact.first-name }}</label><br>
+  <input type="text" id="first-name" name="first-name" required><br><br>
+
+  <label for="last-name">{{ t.contact.last-name }}</Jlabel><br>
+  <input type="text" id="last-name" name="last-name" required><br><br>
+
+  <label for="email">{{ t.contact.email }}</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="message">{{ t.contact.message }}</label><br>
+  <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+  
+  <input type="text" name="_gotcha" style="display:none">
+
+  <button type="submit">{{ t.contact.send }}</button>
+</form>
+ -->
+
+<form action="https://api.web3forms.com/submit" method="POST" >
+
+    <input type="hidden" name="access_key" value="02be6486-fa98-4af8-8706-6aea43c9b934">
+
+    
+    <label for="first-name">{{ t.contact.first-name }}</label><br>
+    <input type="text" name="name" placeholder="{{t.contact.placeholder-name}}" required />
+    <!--<input type="text" name="name" required>-->
+    <label for="last-name">{{ t.contact.last-name }}</label><br>
+    <input type="text" name="last_name" placeholder="{{t.contact.placeholder-surname}}" required />
+    <label for="email">{{ t.contact.email }}</label><br>
+    <input type="email" name="email" required />
+    <label for="message">{{ t.contact.message }}</label><br>
+    <textarea name="message" required></textarea>
+
+    <input type="hidden" name="redirect" value="{% if page.lang == 'en' %}http://127.0.0.1:4000/thank/{% else %}http://127.0.0.1:4000/ua/thank/{% endif %}">
+
+    <button type="submit">{{ t.contact.send }}</button>
+
+</form>
